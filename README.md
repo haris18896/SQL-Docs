@@ -168,5 +168,6 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
   * You can see the data in a tabular format, view the execution plan, and even export the results if needed.
 
 
+![Screenshot 2024-08-03 at 5 17 05 PM](https://github.com/user-attachments/assets/2f7b5cdf-e0bf-42bb-a2b7-0575af55b802)
 
 
