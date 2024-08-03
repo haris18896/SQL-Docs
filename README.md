@@ -84,4 +84,52 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
   * `ROWNUMBER`: Specifies the number of rows to return.
 
 ---
----
+
+### SQL Data Types
+* Numeric:
+  * `INT` (or INTEGER): Integer data type. 
+  * `BIGINT`: Large integer data type. 
+  * `SMALLINT`: Small integer data type. 
+  * `TINYINT`: Very small integer data type. 
+  * `DECIMAL` (or NUMERIC): Exact numeric data type with fixed precision and scale. 
+  * `FLOAT`: Approximate numeric data type with floating-point precision. 
+  * `REAL`: Approximate numeric data type, less precision than FLOAT. 
+  * `DOUBLE` (or DOUBLE PRECISION): Approximate numeric data type with double the precision of FLOAT. 
+  * `BIT`: Binary data type, typically used for boolean values. 
+  * `SERIAL`: Auto-incrementing integer data type (implementation may vary between SQL databases).
+
+* Date and Time:
+  * `DATE`: Stores dates (year, month, day). 
+  * `TIME`: Stores time (hours, minutes, seconds). 
+  * `DATETIME`: Stores both date and time. 
+  * `TIMESTAMP`: Stores date and time, often with timezone information. 
+  * `YEAR`: Stores a year value.
+
+* String:
+  * `CHAR`: Fixed-length character string.
+  * `VARCHAR`: Variable-length character string.
+  * `TINYTEXT`: Very small text data type.
+  * `TEXT`: Large text data type.
+  * `BLOB`: Binary Large Object for storing binary data.
+  * `MEDIUMTEXT`: Medium-sized text data type.
+  * `MEDIUMBLOB`: Medium-sized binary data type.
+  * `LONGTEXT`: Very large text data type.
+  * `LONGBLOB`: Very large binary data type.
+  * `ENUM`: Enumerated list of values, can only store one of the predefined values.
+  * `SET`: Similar to ENUM, but can store multiple values from the predefined list.
+
+* JSON:
+  * `JSON`: Stores JSON (JavaScript Object Notation) data.
+
+
+
+
+
+
+
+
+
+
+
+
+
