@@ -119,9 +119,9 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
 * JSON:
   * `JSON`: Stores JSON (JavaScript Object Notation) data.
 
-
-
-
+### Relational VS Non-Relational Databases
+* `Relational Databases`: Relational databases store data in tables and rows, and use Structured Query Language (SQL) for database access. They are based on the relational model, which organizes data into one or more tables (or "relations") of columns and rows, with a unique key identifying each row. Relational databases are widely used in applications where data is structured and relationships between data elements are well-defined.
+* `Non-Relational Databases`: Non-relational databases store data in a variety of formats, such as key-value pairs, documents, graphs, or wide-column stores. They are designed to handle large volumes of unstructured or semi-structured data, and are often used in applications where data is not easily organized into tables and rows. Non-relational databases are also known as NoSQL databases, which stands for "not only SQL."
 
 
 
