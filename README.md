@@ -83,8 +83,6 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
   * `ROWNUM`: Specifies the number of rows to return.
   * `ROWNUMBER`: Specifies the number of rows to return.
 
----
-
 ### SQL Data Types
 * Numeric:
   * `INT` (or INTEGER): Integer data type. 
