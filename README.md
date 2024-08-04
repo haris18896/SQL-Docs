@@ -44,16 +44,10 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
   * `JOIN`: Combine rows from two or more tables, based on a related column between them.
   * `UNION`: Combine the result set of two or more SELECT statements.
   * `INTERSECT`: Combine the result set of two or more SELECT statements and returns only the rows that appear in all result sets.
-  * `EXCEPT`: Combine the result set of two or more SELECT statements and returns only the rows that appear in the first result set but not in the other result set.
   * `IN`: Allows you to specify multiple values in a WHERE clause.
   * `LIKE`: Allows you to perform pattern matching.
   * `BETWEEN`: Selects values within a given range.
   * `EXISTS`: Tests for the existence of any records in a subquery.
-  * `ANY`: Compares a value to any applicable value in the list according to the condition.
-  * `ALL`: Compares a value to every applicable value in the list according to the condition.
-  * `CASE`: Creates different outputs based on conditions.
-  * `COALESCE`: Returns the first non-null expression in the list.
-  * `NULLIF`: Returns NULL if the two expressions are equal.
   * `NATURAL JOIN`: Performs a join by implicitly selecting the columns with the same name in the two tables.
   * `CROSS JOIN`: Returns the Cartesian product of the two tables.
   * `INNER JOIN`: Returns rows when there is at least one match in both tables.
@@ -62,27 +56,6 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
   * `FULL JOIN`: Returns rows when there is a match in one of the tables.
   * `SELF JOIN`: Joins a table with itself.
   * `UNION ALL`: Combines the result set of two or more SELECT statements (allows duplicate values).
-  * `ROW_NUMBER`: Assigns a unique sequential integer to each row to which a window function is applied.
-  * `RANK`: Assigns a unique integer to each distinct row within the partition of a result set.
-  * `DENSE_RANK`: Assigns a unique integer to each distinct row within the partition of a result set.
-  * `NTILE`: Divides an ordered set of rows into a specified number of groups called buckets and assigns a bucket number to each row.
-  * `LAG`: Accesses data from a previous row in the same result set without the use of a self-join.
-  * `LEAD`: Accesses data from a subsequent row in the same result set without the use of a self-join.
-  * `FIRST_VALUE`: Returns the first value in an ordered set of values.
-  * `LAST_VALUE`: Returns the last value in an ordered set of values.
-  * `OFFSET`: Specifies the number of rows to skip before starting to return rows from the query expression.
-  * `FETCH`: Specifies the number of rows to return after the OFFSET clause has been processed.
-  * `TOP`: Specifies the number of rows or the percentage of rows to be returned.
-  * `PERCENT`: Specifies the percentage of rows to return.
-  * `ROWNUM`: Specifies the number of rows to return.
-  * `ROWNUMBER`: Specifies the number of rows to return.
-  * `LIMIT`: Specifies the number of rows to return.
-  * `OFFSET`: Specifies the number of rows to skip before starting to return rows from the query expression.
-  * `FETCH`: Specifies the number of rows to return after the OFFSET clause has been processed.
-  * `TOP`: Specifies the number of rows or the percentage of rows to be returned.
-  * `PERCENT`: Specifies the percentage of rows to return.
-  * `ROWNUM`: Specifies the number of rows to return.
-  * `ROWNUMBER`: Specifies the number of rows to return.
 
 ### `SQL Data Types`
 * Numeric:
@@ -116,9 +89,43 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
   * `LONGBLOB`: Very large binary data type.
   * `ENUM`: Enumerated list of values, can only store one of the predefined values.
   * `SET`: Similar to ENUM, but can store multiple values from the predefined list.
+  * `IN `: Used to specify multiple values in a WHERE clause.
+  * `LIKE `: Used for pattern matching.
+  * `BETWEEN `: Selects values within a given range.
+  * `IS NULL `: Tests for NULL values.
+  * `IS NOT NULL `: Tests for non-NULL values.
+  * `EXCEPT `: Combines the result set of two or more SELECT statements and returns only the rows that appear in the first result set but not in the other result set.
+  * `ALL `: Compares a value to every applicable value in the list according to the condition.
+  * `ANY `: Compares a value to any applicable value in the list according to the condition.
+  * `CASE `: Creates different outputs based on conditions.
+  * `COALESCE `: Returns the first non-null expression in the list.
+  * `NULLIF `: Returns NULL if the two expressions are equal.
+  * `ROW_NUMBER `: Assigns a unique sequential integer to each row to which a window function is applied.
+  * `RANK `: Assigns a unique integer to each distinct row within the partition of a result set.
+  * `DENSE_RANK `: Assigns a unique integer to each distinct row within the partition of a result set.
+  * `NTILE `: Divides an ordered set of rows into a specified number of groups called buckets and assigns a bucket number to each row.
+  * `LAG `: Accesses data from a previous row in the same result set without the use of a self-join.
+  * `LEAD `: Accesses data from a subsequent row in the same result set without the use of a self-join.
+  * `FIRST_VALUE `: Returns the first value in an ordered set of values.
+  * `LAST_VALUE `: Returns the last value in an ordered set of values.
+  * `OFFSET `: Specifies the number of rows to skip before starting to return rows from the query expression.
+  * `FETCH `: Specifies the number of rows to return after the OFFSET clause has been processed.
+  * `TOP `: Specifies the number of rows or the percentage of rows to be returned.
+  * `PERCENT `: Specifies the percentage of rows to return.
+  * `ROWNUM `: Specifies the number of rows to return.
+  * `ROWNUMBER `: Specifies the number of rows to return.
+  * `LIMIT `: Specifies the number of rows to return.
 
 * JSON:
   * `JSON`: Stores JSON (JavaScript Object Notation) data.
+
+### Aggregations
+* `COUNT`: Returns the number of rows that match a specified condition.
+* `SUM`: Calculates the sum of a set of values.
+* `AVG`: Calculates the average of a set of values.
+* `MIN`: Returns the minimum value in a set of values.
+* `MAX`: Returns the maximum value in a set of values.
+
 
 ### Operators
 * `Arithmetic`: +, -, *, /, %
@@ -127,35 +134,6 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
 * `Bitwise`: &, |, ^, ~, <<, >>
 * `Assignment`: =, +=, -=, *=, /=, %=
 * `Concatenation `: ||
-* `IN `: Used to specify multiple values in a WHERE clause.
-* `LIKE `: Used for pattern matching.
-* `BETWEEN `: Selects values within a given range.
-* `IS NULL `: Tests for NULL values.
-* `IS NOT NULL `: Tests for non-NULL values.
-* `EXISTS `: Tests for the existence of any records in a subquery.
-* `UNION `: Combines the result set of two or more SELECT statements.
-* `INTERSECT `: Combines the result set of two or more SELECT statements and returns only the rows that appear in all result sets.
-* `EXCEPT `: Combines the result set of two or more SELECT statements and returns only the rows that appear in the first result set but not in the other result set.
-* `ALL `: Compares a value to every applicable value in the list according to the condition.
-* `ANY `: Compares a value to any applicable value in the list according to the condition.
-* `CASE `: Creates different outputs based on conditions.
-* `COALESCE `: Returns the first non-null expression in the list.
-* `NULLIF `: Returns NULL if the two expressions are equal.
-* `ROW_NUMBER `: Assigns a unique sequential integer to each row to which a window function is applied.
-* `RANK `: Assigns a unique integer to each distinct row within the partition of a result set.
-* `DENSE_RANK `: Assigns a unique integer to each distinct row within the partition of a result set.
-* `NTILE `: Divides an ordered set of rows into a specified number of groups called buckets and assigns a bucket number to each row.
-* `LAG `: Accesses data from a previous row in the same result set without the use of a self-join.
-* `LEAD `: Accesses data from a subsequent row in the same result set without the use of a self-join.
-* `FIRST_VALUE `: Returns the first value in an ordered set of values.
-* `LAST_VALUE `: Returns the last value in an ordered set of values.
-* `OFFSET `: Specifies the number of rows to skip before starting to return rows from the query expression.
-* `FETCH `: Specifies the number of rows to return after the OFFSET clause has been processed.
-* `TOP `: Specifies the number of rows or the percentage of rows to be returned.
-* `PERCENT `: Specifies the percentage of rows to return.
-* `ROWNUM `: Specifies the number of rows to return.
-* `ROWNUMBER `: Specifies the number of rows to return.
-* `LIMIT `: Specifies the number of rows to return.
 
 ### `Relational VS Non-Relational Databases`
 * `Relational Databases`: Relational databases store data in tables and rows, and use Structured Query Language (SQL) for database access. They are based on the relational model, which organizes data into one or more tables (or "relations") of columns and rows, with a unique key identifying each row. Relational databases are widely used in applications where data is structured and relationships between data elements are well-defined.
