@@ -35,6 +35,7 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
     * `DENY`: Denies a privilege to user.
 * `DQL`: Data Query Language
   * `SELECT`: Retrieve data from the database.
+  * 'DISTINCT': Selects only distinct (different) values.
   * `WITH`: Subquery Factoring (Common Table Expressions).
   * `ORDER BY`: Sort the result set in ascending or descending order.
   * `GROUP BY`: Group rows that have the same values into summary rows.
@@ -118,6 +119,43 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
 
 * JSON:
   * `JSON`: Stores JSON (JavaScript Object Notation) data.
+
+### Operators
+* `Arithmetic`: +, -, *, /, %
+* `Comparison`: =, <>, !=, >, <, >=, <=
+* `Logical`: AND, OR, NOT
+* `Bitwise`: &, |, ^, ~, <<, >>
+* `Assignment`: =, +=, -=, *=, /=, %=
+* `Concatenation `: ||
+* `IN `: Used to specify multiple values in a WHERE clause.
+* `LIKE `: Used for pattern matching.
+* `BETWEEN `: Selects values within a given range.
+* `IS NULL `: Tests for NULL values.
+* `IS NOT NULL `: Tests for non-NULL values.
+* `EXISTS `: Tests for the existence of any records in a subquery.
+* `UNION `: Combines the result set of two or more SELECT statements.
+* `INTERSECT `: Combines the result set of two or more SELECT statements and returns only the rows that appear in all result sets.
+* `EXCEPT `: Combines the result set of two or more SELECT statements and returns only the rows that appear in the first result set but not in the other result set.
+* `ALL `: Compares a value to every applicable value in the list according to the condition.
+* `ANY `: Compares a value to any applicable value in the list according to the condition.
+* `CASE `: Creates different outputs based on conditions.
+* `COALESCE `: Returns the first non-null expression in the list.
+* `NULLIF `: Returns NULL if the two expressions are equal.
+* `ROW_NUMBER `: Assigns a unique sequential integer to each row to which a window function is applied.
+* `RANK `: Assigns a unique integer to each distinct row within the partition of a result set.
+* `DENSE_RANK `: Assigns a unique integer to each distinct row within the partition of a result set.
+* `NTILE `: Divides an ordered set of rows into a specified number of groups called buckets and assigns a bucket number to each row.
+* `LAG `: Accesses data from a previous row in the same result set without the use of a self-join.
+* `LEAD `: Accesses data from a subsequent row in the same result set without the use of a self-join.
+* `FIRST_VALUE `: Returns the first value in an ordered set of values.
+* `LAST_VALUE `: Returns the last value in an ordered set of values.
+* `OFFSET `: Specifies the number of rows to skip before starting to return rows from the query expression.
+* `FETCH `: Specifies the number of rows to return after the OFFSET clause has been processed.
+* `TOP `: Specifies the number of rows or the percentage of rows to be returned.
+* `PERCENT `: Specifies the percentage of rows to return.
+* `ROWNUM `: Specifies the number of rows to return.
+* `ROWNUMBER `: Specifies the number of rows to return.
+* `LIMIT `: Specifies the number of rows to return.
 
 ### `Relational VS Non-Relational Databases`
 * `Relational Databases`: Relational databases store data in tables and rows, and use Structured Query Language (SQL) for database access. They are based on the relational model, which organizes data into one or more tables (or "relations") of columns and rows, with a unique key identifying each row. Relational databases are widely used in applications where data is structured and relationships between data elements are well-defined.
