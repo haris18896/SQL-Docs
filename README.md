@@ -186,4 +186,9 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
 
 ![Screenshot 2024-08-03 at 5 17 05 PM](https://github.com/user-attachments/assets/2f7b5cdf-e0bf-42bb-a2b7-0575af55b802)
 
+* After creating the connection with the postgrtsql database, you can create a new database by running the following command in the query console:
+  * `CREATE DATABASE sql_course` and then go to the pgAdmin and refresh the databases, you will see the new database created.
+  * Now we have to create a new connection with the new database, so that we can run the queries on the new database.
+
+
 
