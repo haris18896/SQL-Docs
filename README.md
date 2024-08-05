@@ -189,6 +189,69 @@ In the 1970's, a programmer named `Edgar F. Codd` from IBM proposed the `Relatio
 * After creating the connection with the postgrtsql database, you can create a new database by running the following command in the query console:
   * `CREATE DATABASE sql_course` and then go to the pgAdmin and refresh the databases, you will see the new database created.
   * Now we have to create a new connection with the new database, so that we can run the queries on the new database.
+* Select the `sql_course` database in pycharm `Data Source` and then create a new table by running the following command: the below command will create a table in the `sql_course` which you will be able to see in the pycharm `Data Source` and as well as in the `pgAdmin` after refreshing the DATABASE
+```sql
+CREATE TABLE job_applied (
+    job_id INT,
+    applications_sent_date DATE,
+    custom_resume BOOLEAN,
+    cover_letter_sent BOOLEAN,
+    resume_file_name VARCHAR(255),
+    cover_letter_file_name VARCHAR(255),
+    status VARCHAR(255)
+); 
+```
 
+* Inserting data into the table:
+```sql
+INSERT INTO job_applied (
+                         job_id,
+                         applications_sent_date,
+                         custom_resume,
+                         cover_letter_sent,
+                         resume_file_name,
+                         cover_letter_file_name,
+                         status
+) VALUES (
+          1,
+          '2021-01-01',
+          true,
+          true,
+          'resume1.pdf',
+          'cover_letter1.pdf',
+          'applied'
+);
+```
 
+* Altering the table columns
+```sql
+ALTER TABLE job_applied ADD contact VARCHAR(255);
+```
 
+* Updating the table data
+```sql
+UPDATE job_applied SET contact = 'John Doe' WHERE job_id = 1;
+UPDATE job_applied SET contact = 'Haris' WHERE job_id = 2;
+UPDATE job_applied SET contact = 'Ahmad' WHERE job_id = 3;
+UPDATE job_applied SET contact = 'Khan' WHERE job_id = 4;
+UPDATE job_applied SET contact = 'Musa' WHERE job_id = 5;
+```
+
+* Altering the table column data type
+```sql
+ALTER TABLE job_applied ALTER COLUMN contact TYPE TEXT; 
+```
+
+* Deleting the table column
+```sql
+ALTER TABLE job_applied DROP COLUMN contact;
+```
+
+* Deleting the Table
+```sql
+DROP TABLE job_applied;
+```
+
+---
+
+# `Database Load`
