@@ -255,3 +255,119 @@ DROP TABLE job_applied;
 ---
 
 # `Database Load`
+* [link to download csv and sql file](https://drive.google.com/drive/folders/1moeWYoUtUklJO6NJdWo9OV8zWjRn0rjN).
+* Then we Run all commands in `2_create_table.sql` which will create tables in our `sql_course` make sure the `sql_course` has been selected as default
+* After creating the tables we need to modify the tables so that we can add rows into it for that we need to run `3_modify_tables.sql`
+* Before running the `3_modify_tables.sql` we need to change the paths of the files in the `3_modify_tables.sql` file so that they should point to the exact file in the `csv_files` for that we copy the exact path of the files
+
+* #### `If Running the SQL Command don't work then we can create a python file which is mentioned below`
+```sql
+COPY company_dim
+FROM '/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/company_dim.csv'
+WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+COPY skills_dim
+FROM '/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/skills_dim.csv'
+WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+COPY job_postings_fact
+FROM '/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/job_postings_fact.csv'
+WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+
+COPY skills_job_dim
+FROM '/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/skills_job_dim.csv'
+WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8'); 
+```
+
+# `Activating Conda`
+* Check if `conda` is installed by running `conda --version`
+* If `conda` is not installed then install it by running the following command:
+  * `curl -o ~/miniconda.sh -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+  * `bash ~/miniconda.sh -b -p ~/miniconda`
+  * `rm ~/miniconda.sh`
+  * `source ~/miniconda/bin/activate`
+  * `conda init`
+  * `conda --version`
+* Open your terminal and add the following lines to your shell configuration file (~/.zshrc for zsh, ~/.bashrc or ~/.bash_profile for bash):
+  * `export PATH="/path/to/your/anaconda3/bin:$PATH"`
+  * `source ~/.zshrc` 
+* Create a new environment by running the following command:
+  * `conda create --name sql_course python=3.11.7`
+* Activate the environment by running the following command:
+  * `conda activate sql_course`
+* Install the required packages by running the following command:
+    * `pip install -r requirements.txt` || `pip install psycopg2-binary`
+* And then create `requirements.txt` file by running the following command:
+  * `pip freeze > requirements.txt`
+* Run the `main.py` file by running the following command:
+  * `python modifying_tables.py`
+
+```txt
+# requirements.txt
+psycopg2-binary>=2.9.9,<3.0.0
+```
+
+* ### `In case of Deactivation and Removal of the environment`
+* Deactivate the environment by running the following command:
+  * `conda deactivate`
+* Remove the environment by running the following command:
+  * `conda remove --name sql_course --all`
+* List all the environments by running the following command:
+  * `conda env list`
+* Update the environment by running the following command:
+  * `conda update --name sql_course --all`
+
+```py
+import psycopg2
+
+# Paths to the CSV files
+csv_files = {
+"company_dim": "/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/company_dim.csv",
+    "skills_dim": "/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/skills_dim.csv",
+    "job_postings_fact": "/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/job_postings_fact.csv",
+    "skills_job_dim": "/Users/harisahmad/Downloads/0-data/1-Confidential/1-personal/SQL-Docs/csv_files/skills_job_dim.csv"
+}
+
+# Database connection parameters
+db_params = {
+    "dbname": "sql_course",
+    "user": "postgres",
+    "password": "incorrect",
+    "host": "localhost",
+    "port": "5432"
+}
+
+def copy_table_data(cursor, table_name, file_path):
+    try:
+        with open(file_path, 'r') as f:
+            cursor.copy_expert(f"COPY {table_name} FROM STDIN WITH CSV HEADER", f)
+        print(f"Data copied to {table_name} table")
+    except Exception as e:
+        print(f"Error copying data to {table_name}: {e}")
+
+def main():
+    try:
+        # Connect to the database
+        conn = psycopg2.connect(**db_params)
+        cursor = conn.cursor()
+
+        # Copy data from CSV files to the respective tables
+        for table, file_path in csv_files.items():
+            copy_table_data(cursor, table, file_path)
+
+        # Commit the transaction
+        conn.commit()
+        print("All data copied successfully")
+
+    except Exception as e:
+        print(f"Database error: {e}")
+
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+if __name__ == "__main__":
+    main()
+```
